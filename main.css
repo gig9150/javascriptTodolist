@@ -1,0 +1,21 @@
+body{
+    font-size:20px;
+    background: url(./background.jpg) repeat;
+}
+#wrap{
+    /* 중앙정렬 */
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index: 11;
+    box-shadow:5px 5px 5px gray;
+    background-color: white;
+    border: 1px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;;
+}
+/* input img */
+#input_img{
+    background:url(./plus.jpg) no-repeat;
+}
