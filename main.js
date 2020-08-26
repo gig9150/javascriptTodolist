@@ -19,15 +19,38 @@ window.onload = function(){
             list.className = "list_content";
             list_checkbox.className = "content_checkbox";
             list.innerHTML = document.getElementById("input_text").value;
+
+            /*취소선 이벤트 연결*/
+            list_checkbox.addEventListener('click',function(){
+                if(this.checked){
+                    this.parentNode.style.textDecoration = 'line-through';
+                }else{
+                    this.parentNode.style.textDecoration = 'none';
+                }refresh_img
+            });
+
+            /* 요소 추가 */
             document.getElementById("list").appendChild(list);
             document.getElementsByClassName("list_content")[i++].appendChild(list_checkbox);
             //입력창 초기화
             document.getElementById("input_text").value = "";
         }
     }
-    /* 취소선 이벤트 */
-    /* document.onclick = function(e){
-         e.parentNode.style.textDecoration = "line-through";
-         alert(e);
-    } */
+    /* 초기화 이벤트 바인딩 */
+    document.getElementById('refresh_img').addEventListener('click',function(){
+        if(confirm('정말 삭제 하시겠습니까?')){
+            let list = document.getElementById('list');
+            /* if (list.hasChildNodes()) {
+                list.removeChild(list.childNodes[0]);
+            } */
+            list.innerHTML = '';
+            /* 초기화 작업 */
+            document.getElementById("input_text").value = "";
+            i = 0;
+        }
+    });
+}
+
+window.onbeforeunload = function(){
+    return '정말 나가시겠습니까?';
 }
